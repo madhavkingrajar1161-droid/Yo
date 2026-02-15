@@ -281,7 +281,7 @@
             }
 
             if (command === 'support') {
-                await message.reply(`Join our support server: https://discord.gg/X29WWHtzAG\n\nNeed help with ${client.user.username}? We're here to help!`);
+                await message.reply(`Join our support server: https://discord.com/invite/9MVAPpfs8D\n\nNeed help with ${client.user.username}? We're here to help!`);
             }
 
             if (command === 'help') {
@@ -433,4 +433,22 @@
                     .setFooter({ text: `${client.user.username} Giveaway System` })
                     .setTimestamp();
 
- 
+                await interaction.reply({ embeds: [embed] });
+            }
+        });
+
+        app.get('/', (req, res) => {
+            res.send(`${client.user?.username || 'Giveaway Bot'} is running!`);
+        });
+
+        client.login(process.env.TOKEN)
+            .then(() => {
+                app.listen(PORT, () => {
+                    console.log(`Server running on port ${PORT}`);
+                    console.log(`${client.user.username} is ready!`);
+                });
+            })
+            .catch(err => {
+                console.error('Failed to login:', err);
+                process.exit(1);
+            });
