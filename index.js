@@ -411,7 +411,7 @@
 
             if (commandName === 'support') {
                 await interaction.reply({ 
-                    content: `${client.user.username} support server: https://discord.com/invite/9MVAPpfs8D\n\nGet help with giveaways and more!`, 
+                    content: `${client.user.username} support server: https://discord.gg/X29WWHtzAG\n\nGet help with giveaways and more!`, 
                     ephemeral: true 
                 });
             }
